@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser')
 var urlParser = bodyParser.urlencoded({extended:false})
-var todoController = require('./controllers/todoController')
+var todoController = require('./controllers/blogController')
 var app = express();
 
 // SET UP TEMPLATE ENGINE
