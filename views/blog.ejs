@@ -1,18 +1,6 @@
 <%- include ("partials/head")%>
 <body>
     <%- include ("partials/navigation") %>
-
-    <div class="blogs">
-        <ul class="blog-list">
-            <% blogs.forEach(function(blog){ %>
-                <li>
-                   <h3> <%= blog.title %> </h3>
-                    <p><%= blog.content %></p>
-                    <small><%= blog.date %></small>
-                </li>
-                
-            <% }) %>
-        </ul>
-    </div>
+    <%- include("partials/blogList") %>
 </body>
 </html>

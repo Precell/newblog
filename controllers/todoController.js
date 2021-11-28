@@ -1,4 +1,4 @@
-module.exports = function(app){
+module.exports = function(app, urlParser){
     
     app.get('/blog', function(req, res){
         var blogs = [
@@ -16,12 +16,24 @@ module.exports = function(app){
                 date: Date()
      
              }
+             ,
+             {
+                title: "My First Blog",
+                content:`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci et commodi quidem nostrum fugiat amet esse laudantium, aliquam sint inventore optio non! Officiis placeat laborum ex omnis at assumenda, 
+                repellat asperiores similique officia! Possimus!`,
+                date: Date()
+     
+             }
     ]
         res.render('blog', {blogs:blogs})
     })
 
-    app.post('/blog', function(req, res){
+    app.get('/newBlog', (req, res)=>{
+        res.render('newBlog')
+    })
 
+    app.post('/blog', urlParser, function(req, res){
+        // console.log(req.body)
     })
 
     app.delete('/blog', function(req, res){

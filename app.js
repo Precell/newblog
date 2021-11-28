@@ -1,4 +1,6 @@
 var express = require('express');
+var bodyParser = require('body-parser')
+var urlParser = bodyParser.urlencoded({extended:false})
 var todoController = require('./controllers/todoController')
 var app = express();
 
@@ -8,7 +10,7 @@ app.set('view engine', 'ejs')
 app.use(express.static('./public'))
 
 // FIRE CONTROLLERS
-todoController(app)
+todoController(app, urlParser)
 
 // LISTEN TO A PORT
 app.listen(3000)
