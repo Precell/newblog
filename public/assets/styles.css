@@ -26,10 +26,10 @@
 }
 
 .hero{
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
     background-color: #ccc;
-    padding: 20px;
+    /* padding: 20px; */
     text-align: center;
 }
 
