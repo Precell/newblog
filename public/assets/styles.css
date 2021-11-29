@@ -25,6 +25,19 @@
     color: #fff;
 }
 
+.hero{
+    width: 80%;
+    margin: 0 auto;
+    background-color: #ccc;
+    padding: 30px;
+    text-align: center;
+}
+
+.hero > h1{
+    font-size: 50px;
+    color: #fff;
+}
+
 .blogs{
     width: 80%;
     margin: 0 auto;
