@@ -1,6 +1,6 @@
 module.exports = function(app, urlParser){
     
-    app.get('/blog', function(req, res){
+    app.get('/', function(req, res){
         var blogs = [
             {
                 title: "My First dummy Blog",
