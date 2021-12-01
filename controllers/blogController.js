@@ -1,6 +1,11 @@
 var mongoose = require('mongoose');
 // CONNECT TO THE DATABASE
-mongoose.connect('mongodb+srv://precell:precell12345@cluster0.rfhax.mongodb.net/mongodb?retryWrites=true&w=majority');
+mongoose.connect('mongodb://precell:precell12345@cluster0.rfhax.mongodb.net/mongodb?retryWrites=true&w=majority')
+.then((res)=>{
+
+}).catch((err)=>{
+    console.log(err);
+});
 
 // CREATE SCHEMA - a blueprint for our data 
 var blogSchema = new mongoose.Schema({
