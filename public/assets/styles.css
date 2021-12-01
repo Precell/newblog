@@ -51,6 +51,7 @@
 
 .blogs > .blog-list{
     display: flex;
+    flex-wrap: wrap;
 }
 
 .blogs > .blog-list > .blog-item{
