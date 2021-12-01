@@ -61,7 +61,6 @@ module.exports = function(app, urlParser){
         // get data from the view to mongodb
         var newblog = Blog(req.body).save(function(err, data){
             if(err) throw err;
-            res.json(data)
         })
         // console.log(req.body)
     })
