@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 // CONNECT TO THE DATABASE
-mongoose.connect('mongodb://precell:precell12345@cluster0.rfhax.mongodb.net/mongodb?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://precell:precell12345@cluster0.rfhax.mongodb.net/mongodb?retryWrites=true&w=majority', ()=>{
+    console.log('CONNECTED WITH MONGOdb');
+});
 
 // CREATE SCHEMA - a blueprint for our data 
 var blogSchema = new mongoose.Schema({
