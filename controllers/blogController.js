@@ -46,7 +46,7 @@ module.exports = function(app, urlParser){
 // ]
 
 
-    app.get('/', function(req, res){
+    app.get('/blog', function(req, res){
     //    GET DATA FROM MONGOdb AND PASS IT TO THE VIEW
         Blog.find({}, function(err, data){
             if(err) throw err;
