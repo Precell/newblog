@@ -59,15 +59,15 @@ module.exports = function(app, urlParser){
         res.render('newBlog')
     });
 
-    app.post('/blog', urlParser, function(req, res){
-        // get data from the view to mongodb
-        var newblog = Blog(req.body).save(function(err, data){
-            if(err) throw err;
-        });
-        // console.log(req.body)
-    });
+    // app.post('/blog', urlParser, function(req, res){
+    //     // get data from the view to mongodb
+    //     var newblog = Blog(req.body).save(function(err, data){
+    //         if(err) throw err;
+    //     });
+    //     // console.log(req.body)
+    // });
 
-    app.delete('/blog', function(req, res){
+    // app.delete('/blog', function(req, res){
 
-    })
+    // })
 }
