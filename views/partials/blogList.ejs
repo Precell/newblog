@@ -5,6 +5,7 @@
                <h3> <%= blog.title %> </h3>
                 <p><%= blog.content %></p>
                 <small><%= blog.id %></small>
+                <button onclick="doDelete('<% blog.id %>')">Delete blog</button>
             </li>
             
         <% }) %>

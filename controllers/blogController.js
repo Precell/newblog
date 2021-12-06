@@ -1,52 +1,23 @@
 var mongoose = require('mongoose');
-// CONNECT TO THE DATABASE
-mongoose.connect('mongodb+srv://precell:precell12345@cluster0.rfhax.mongodb.net/mongodb?retryWrites=true&w=majority', ()=>{
-    console.log('CONNECTED WITH MONGOdb');
-});
+const Blog = require('../models/blog');
 
-// CREATE SCHEMA - a blueprint for our data 
-var blogSchema = new mongoose.Schema({
-    title: String,
-    content: String
-});
+// Connect to mongoDB
+const dbURI = 'mongodb+srv://precell:precell12345@cluster0.rfhax.mongodb.net/mongodb?retryWrites=true&w=majority'
 
-// create a model or collection for our schema
-var Blog = mongoose.model('Blog', blogSchema);
+mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology:true})
+    .then((result)=> app.listen(process.env.PORT || 3000))
+    .catch((error)=>{console.log(error);});
 
-// var newBlog = Blog({title:'Precell', content:'Building an app'}).save(function(err){
-//     if(err) {throw err};
-//     console.log('item saved');
-// })
+// Adding A new blog to the DB
+
+
+
 
 module.exports = function(app, urlParser){
+
+
     
-//     var blogs = [
-//         {
-//             title: "My First dummy Blog",
-//             content:`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci et commodi quidem nostrum fugiat amet esse laudantium, aliquam sint inventore optio non! Officiis placeat laborum ex omnis at assumenda, 
-//             repellat asperiores similique officia! Possimus!`,
-//             id: 3
- 
-//          },
-//          {
-//             title: "My second dummey blog",
-//             content:`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci et commodi quidem nostrum fugiat amet esse laudantium, aliquam sint inventore optio non! Officiis placeat laborum ex omnis at assumenda, 
-//             repellat asperiores similique officia! Possimus!`,
-//             id: 3
- 
-//          }
-//          ,
-//          {
-//             title: "My third dummy blog",
-//             content:`Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci et commodi quidem nostrum fugiat amet esse laudantium, aliquam sint inventore optio non! Officiis placeat laborum ex omnis at assumenda, 
-//             repellat asperiores similique officia! Possimus!`,
-//             id: 3
- 
-//          }
-// ]
-
-
-    app.get('/blog', function(req, res){
+    app.get('/', function(req, res){
     //    GET DATA FROM MONGOdb AND PASS IT TO THE VIEW
         Blog.find({}, function(err, data){
             if(err) throw err;
@@ -56,18 +27,20 @@ module.exports = function(app, urlParser){
     });
 
     app.get('/newBlog', (req, res)=>{
+        console.log(res);
+
         res.render('newBlog')
     });
 
-    // app.post('/blog', urlParser, function(req, res){
-    //     // get data from the view to mongodb
-    //     var newblog = Blog(req.body).save(function(err, data){
-    //         if(err) throw err;
-    //     });
-    //     // console.log(req.body)
-    // });
+    app.post('/blog', urlParser, function(req, res){
+        // get data from the view to mongodb
+        var newblog = Blog(req.body).save(function(err, data){
+            if(err) throw err;
+        });
+        // console.log(req.body)
+    }); 
 
-    // app.delete('/blog', function(req, res){
-
-    // })
+    app.delete('/delete', urlParser, function(req, res){
+        console.log(req.body);
+    })
 }
