@@ -61,9 +61,11 @@
 .blogs > .blog-list > .blog-item{
     padding: 30px;
     list-style: none;
-    font-size: 18px;
+    /* font-size: 22px; */
 }
-
+.blog-item  p{
+    font-size: 22px;
+}
 form{
     width: 70%;
     margin: 0 auto;

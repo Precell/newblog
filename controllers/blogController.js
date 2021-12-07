@@ -1,20 +1,12 @@
-var mongoose = require('mongoose');
+
 const Blog = require('../models/blog');
 
 // Connect to mongoDB
-const dbURI = 'mongodb+srv://precell:precell12345@cluster0.rfhax.mongodb.net/mongodb?retryWrites=true&w=majority'
-
-// mongodb+srv://precell:precell12345@cluster0.rfhax.mongodb.net/mongodb?retryWrites=true&w=majority
 
 // Adding A new blog to the DB
 module.exports = function(app, urlParser){
     
-    mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology:true})
-    .then((result)=> app.listen(process.env.PORT || 3000))
-    .catch((error)=>{console.log(error);});
-
  
-    
     // GETTING ALL THE BLOGS FROM THE DB
     app.get('/', (req, res)=>{
         Blog.find()
