@@ -1,12 +1,6 @@
-
 const Blog = require('../models/blog');
 
-// Connect to mongoDB
-
-// Adding A new blog to the DB
-module.exports = function(app, urlParser){
-    
- 
+module.exports = function(app, urlParser){ 
     // GETTING ALL THE BLOGS FROM THE DB
     app.get('/', (req, res)=>{
         Blog.find()
@@ -16,8 +10,6 @@ module.exports = function(app, urlParser){
             console.log(error);
         })
     });
-
- 
 
     app.get('/newBlog', (req, res)=>{
         console.log(res);
