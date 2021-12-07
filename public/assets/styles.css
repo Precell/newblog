@@ -43,10 +43,14 @@
     color: #fff;
 }
 
-.blogs{
+.blogs, .details{
     width: 80%;
     margin: 0 auto;
     background-color: #ccc;
+}
+.details{margin: 20px auto;}
+.details-inner{
+    padding: 30px;
 }
 
 .blogs > .blog-list{
@@ -95,4 +99,13 @@ footer .footer-inner{
     justify-content: center;
     align-items: center;
     color: #fff;
+}
+
+.content{
+    display: block;
+    color: red;
+    text-decoration: none;
+    list-style: none;
+    margin: 0 30px;
+
 }

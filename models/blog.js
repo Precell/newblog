@@ -12,15 +12,14 @@ var blogSchema = new mongoose.Schema({
             type: String,
             required: true
         },
-        body: {
+        content: {
             type: String,
             required: true
         }
     },
+    
+    {timestamps:true}
+);
 
-    {
-        timestamps:true
-    });
-
-    const Blog = mongoose.model("Blog", blogSchema)
-    module.exports = Blog;
+const Blog = mongoose.model("Blog", blogSchema)
+module.exports = Blog;

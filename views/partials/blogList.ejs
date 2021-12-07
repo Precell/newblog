@@ -1,13 +1,12 @@
 <div class="blogs">
     <ul class="blog-list">
         <% blogs.forEach(function(blog){ %>
-            <li class="blog-item">
-               <h3> <%= blog.title %> </h3>
-                <p><%= blog.content %></p>
-                <small><%= blog.id %></small>
-                <button onclick="doDelete('<% blog.id %>')">Delete blog</button>
-            </li>
-            
+            <a class="content" href="/blog/<%= blog._id %>">     
+                <li class="blog-item">   
+                        <h3> <%= blog.title %> </h3>
+                        <p><%= blog.content %></p>            
+                </li>
+            </a>
         <% }) %>
     </ul>
 </div>
