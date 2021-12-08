@@ -37,4 +37,14 @@ module.exports = function(app, urlParser){
           })
           .catch((err)=>{console.log(err)})
     })
+
+    // DELETE A BLOG
+    app.delete('/blog/:id', (req, res) =>{
+        const id = req.params.id
+        Blog.findByIdAndDelete(id)
+        .then((result) =>{
+            res.json({redirect: '/blog'})
+        })
+        .catch(err => console.log(err))
+    })
 }
