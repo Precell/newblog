@@ -1,12 +1,13 @@
 var express = require('express');
+var mongoose = require('mongoose');
 var bodyParser = require('body-parser')
 var urlParser = bodyParser.urlencoded({extended:false})
+
 var todoController = require('./controllers/blogController')
+const blogRoutes = require('./routes/blogRoutes')
 var app = express();
 
 // CONNECTING TO THE DB
-var mongoose = require('mongoose');
-
 const dbURI = 'mongodb+srv://precell:precell12345@cluster0.rfhax.mongodb.net/mongodb?retryWrites=true&w=majority'
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology:true})
 .then((result)=> app.listen(process.env.PORT || 3000))
@@ -20,7 +21,8 @@ app.use(express.static('./public'))
 // FIRE CONTROLLERS
 todoController(app, urlParser)
 
-// LISTEN TO A PORT
-// app.listen(process.env.PORT || 3000)
+// ROUTES
+app.use('/blog', blogRoutes)
+
 console.log('you are listening to port 3000')
 

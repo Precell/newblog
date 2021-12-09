@@ -9,17 +9,16 @@
             <div class="cont">
                 <p><%= blog.content %></p>
             </div>
-            <a class="delete" data-doc="<%= blog._id %>">delete</a>
+            <button class="delete" data-doc="<%= blog._id %>">delete</button>
         </div>
 
     </div>
 
     <%- include("partials/footer") %>
     <script>
-        const trashcan = document.querySelector('a.delete');
+        const trashcan = document.querySelector('button.delete'); 
         trashcan.addEventListener('click', (e)=>{
             const endpoint = `/blog/${trashcan.dataset.doc}`
-
             fetch(endpoint, {
                 method:'DELETE'
             }).then((response)=>{ response.json })
