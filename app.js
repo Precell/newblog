@@ -2,8 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser')
 var urlParser = bodyParser.urlencoded({extended:false})
-
-var todoController = require('./controllers/blogController')
+var blogController = require('./controllers/blogController')
 const blogRoutes = require('./routes/blogRoutes')
 var app = express();
 
@@ -19,7 +18,7 @@ app.set('view engine', 'ejs')
 app.use(express.static('./public'))
 
 // FIRE CONTROLLERS
-todoController(app, urlParser)
+blogController(app, urlParser)
 
 // ROUTES
 app.use('/blog', blogRoutes)
