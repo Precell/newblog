@@ -1,9 +1,37 @@
 const Blog = require('../models/blog')
 const express = require('express')
+// var multer = require('multer')
+// var path = require('path')
 var bodyParser = require('body-parser')
 var urlParser = bodyParser.urlencoded({extended:false})
 
 const router = express.Router()
+
+// // multer storage
+// const storage = multer.diskStorage({
+//     storage: function(req, file, cb){
+//         cb(null, "public/uploads/")
+//     },
+//     filename: function(req, file, cb){
+//         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+//     }
+// });
+
+// // upload 
+
+// var upload = multer({
+//     storage:storage,
+//     limits:{fileSize:1000000},
+//     fileFilter: function(req, file, cb){
+//         if(file.mimetype = "image/png", file.mimetype = "image/jpg"){
+//             cb(null, true)
+//         } else{
+            
+//             cb(null, false)
+//         }
+//     }
+// })
+
 
 // ADD DATA TO THE DB
 router.post('/', urlParser, function(req, res){

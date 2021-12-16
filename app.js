@@ -12,6 +12,9 @@ mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology:true})
 .then((result)=> app.listen(process.env.PORT || 3000))
 .catch((error)=>{console.log(error);});
 
+
+
+
 // SET UP TEMPLATE ENGINE
 app.set('view engine', 'ejs')
 // SET UP STATIC FILES
