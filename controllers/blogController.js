@@ -1,3 +1,29 @@
+var multer = require('multer')
+var path = require('path')
+
+// multer storage
+const storage = multer.diskStorage({
+    storage: function(req, file, cb){
+        cb(null, "public/uploads/")
+    },
+    filename: function(req, file, cb){
+        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+});
+
+// upload 
+var upload = multer({
+    storage:storage,
+    limits:{fileSize:1000000},
+    fileFilter: function(req, file, cb){
+        if(file.mimetype = "image/png", file.mimetype = "image/jpg"){
+            cb(null, true)
+        } else{
+            
+            cb(null, false)
+        }
+    }
+})
 const Blog = require('../models/blog');
 
 module.exports = function(app, urlParser){ 

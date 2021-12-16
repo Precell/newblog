@@ -1,10 +1,10 @@
-<form action="/blog" method="POST">
+<form action="/blog" method="POST" enctype="multipart/form-data">
     <label for="name">Title</label>
     <input type="text" name="title" placeholder="Enter title">
     <label for="snippert">Snippert</label>
     <input type="text" name="snippert" placeholder="Enter Snippert">
     <label for="content"></label>
     <textarea type="textarea" cols="50" rows="15" name="content" placeholder="Add your content.."></textarea>
-    <!-- <input type="file" name="myImage"> -->
+    <input type="file" name="myImage">
     <button id="addData" type="submit">Submit Blog</button>
 </form>
