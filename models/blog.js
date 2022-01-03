@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 
-var blogSchema = new mongoose.Schema({
+var blogSchema = new Schema({
         title: {
             type: String,
             required: true
@@ -14,11 +14,15 @@ var blogSchema = new mongoose.Schema({
         content: {
             type: String,
             required: true
+        },
+        name : {
+            type: String,
+            required: false
+        },
+        image: {
+            data: Buffer,
+            contentType: String
         }
-        // image: {
-        //     type: String,
-        //     required: false
-        // }
     },
     
     {timestamps:true}

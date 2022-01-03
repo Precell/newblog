@@ -34,11 +34,21 @@ var upload = multer({
 
 // ADD DATA TO THE DB
 router.post('/', upload.single('myImage'), urlParser, function(req, res){
-    // upload.single('myImage')
+    upload.single('myImage')
     // get data from the view to mongodb
-    var newblog = new Blog(req.body)
+    var newblog = new Blog({
+        title: req.body.title,
+        snippert: req.body.snippert,
+        content: req.body.content,
+        // name: req.body.name,
+        image:{
+            data:req.file.filename,
+            contentType:'image/png'
+        }
+    })
     newblog.save()
     .then((result)=>{
+        console.log(result)
     }).catch((error)=>{
         console.log(error);
     }) 
@@ -60,7 +70,7 @@ router.delete('/:id', (req, res) =>{
   
     Blog.findByIdAndDelete(id)
     .then((result) =>{
-        res.json({redirect: '/blog'})
+        {redirect: '/blog'}
     })
     .catch(err => console.log(err))
 })
