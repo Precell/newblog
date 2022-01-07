@@ -71,6 +71,7 @@ router.delete('/:id', (req, res) =>{
     Blog.findByIdAndDelete(id)
     .then((result) =>{
         {redirect: '/blog'}
+        res.redirect("/")
     })
     .catch(err => console.log(err))
 })
