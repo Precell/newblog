@@ -29,10 +29,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 30vh;
+    height: 50vh;
     width: 80%;
     margin: 30px auto;
     background-color: #ccc;
+    background-image: url('../hero/a153.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding: 20px 0;
     text-align: center;
 }
