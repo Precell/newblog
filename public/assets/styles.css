@@ -137,3 +137,19 @@ footer .footer-inner{
 .details p{
     font-size: 22px;
 }
+
+@media(max-width: 375px ) {
+ 
+    .navbar > .navbar-items{
+        width: 100%;
+        height: auto;
+    }
+    .navbar > .navbar-items > .navbar-item{
+        display: block;
+    }
+    .blogs, .details{
+        width: 100%;
+        margin: 0;
+    }
+
+}
