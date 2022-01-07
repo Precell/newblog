@@ -49,6 +49,7 @@ router.post('/', upload.single('myImage'), urlParser, function(req, res){
     newblog.save()
     .then((result)=>{
         console.log(result)
+        res.redirect('/')
     }).catch((error)=>{
         console.log(error);
     }) 
@@ -59,7 +60,6 @@ router.get('/:id', (req, res)=>{
     const id = req.params.id
     Blog.findById(id)
       .then((result)=>{
-        res.render('details', {blog: result})
       })
       .catch((err)=>{console.log(err)})
 })
@@ -70,8 +70,7 @@ router.delete('/:id', (req, res) =>{
   
     Blog.findByIdAndDelete(id)
     .then((result) =>{
-        {redirect: '/blog'}
-        res.redirect("/")
+        res.json({redirect: '/blog'})
     })
     .catch(err => console.log(err))
 })
